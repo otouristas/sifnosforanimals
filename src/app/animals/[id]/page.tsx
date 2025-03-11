@@ -1,7 +1,6 @@
 'use client';
 
 import { useLanguage } from '@/components/LanguageProvider';
-import { use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowLeft } from 'react-icons/fa';
@@ -40,17 +39,19 @@ const animals: Record<string, AnimalDetails> = {
 
 export default function AnimalPage({ params }: { params: { id: string } }) {
   const { translations } = useLanguage();
-  const resolvedParams = use(params);
 
   const formatAge = (age: number) => {
-    const ageTranslations: { singular: string; plural: string; } = translations.animal.characteristics.age;
+    // Handle the case where translations.animal.characteristics.age might not be an object with singular and plural
+    const singular = typeof translations.animal.age?.singular === 'string' ? translations.animal.age.singular : 'year';
+    const plural = typeof translations.animal.age?.plural === 'string' ? translations.animal.age.plural : 'years';
+    
     if (age === 1) {
-      return `1 ${ageTranslations.singular}`;
+      return `1 ${singular}`;
     }
-    return `${age} ${ageTranslations.plural}`;
+    return `${age} ${plural}`;
   };
 
-  const resolvedAnimal = animals[resolvedParams.id] || animals.luna;
+  const resolvedAnimal = animals[params.id] || animals.luna;
 
   if (!resolvedAnimal) {
     return (

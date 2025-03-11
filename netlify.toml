@@ -1,21 +1,12 @@
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
 
 [build.environment]
-  # Specify Node.js version that meets Next.js requirements and is supported by Netlify
-  NODE_VERSION = "18.18.0"  # Supported by Netlify and meets Next.js requirements
-  # Explicitly disable Go usage
-  GO_IMPORT_PATH = ""
-  GO_VERSION = ""
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 # Handle client-side routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = false
-  conditions = {Role = ["admin"]}
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"

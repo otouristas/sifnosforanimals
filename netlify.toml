@@ -3,8 +3,8 @@
   publish = ".next"
 
 [build.environment]
-  # Specify Node.js version (using a valid LTS version)
-  NODE_VERSION = "18.17.1"  # This is a valid Node.js LTS version
+  # Specify Node.js version that meets Next.js requirements
+  NODE_VERSION = "20.10.0"  # Latest LTS version that meets Next.js requirements
   # Explicitly disable Go usage
   GO_IMPORT_PATH = ""
   GO_VERSION = ""

@@ -3,8 +3,8 @@
   publish = ".next"
 
 [build.environment]
-  # Specify Node.js version that meets Next.js requirements
-  NODE_VERSION = "20.10.0"  # Latest LTS version that meets Next.js requirements
+  # Specify Node.js version that meets Next.js requirements and is supported by Netlify
+  NODE_VERSION = "18.18.0"  # Supported by Netlify and meets Next.js requirements
   # Explicitly disable Go usage
   GO_IMPORT_PATH = ""
   GO_VERSION = ""

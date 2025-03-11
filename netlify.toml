@@ -4,6 +4,9 @@
 
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  # Explicitly specify Go version
+  GO_VERSION = "1.19"
+  GO_IMPORT_PATH = "github.com/otouristas/sifnosforanimals"
 
 # Handle client-side routing
 [[redirects]]

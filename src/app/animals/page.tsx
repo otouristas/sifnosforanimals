@@ -332,17 +332,17 @@ export default function AnimalsPage() {
       <div className="bg-red-600 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white">
-            {translations.animals.cta.title}
+            Ready to Give a Pet a Forever Home?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-red-100">
-            {translations.animals.cta.subtitle}
+            Start your adoption journey today and make a difference in an animal's life.
           </p>
           <div className="mt-8">
             <Link
               href="/contact"
               className="inline-flex items-center rounded-md bg-white px-8 py-3 text-base font-medium text-red-600 hover:bg-red-50"
             >
-              {translations.animals.cta.button}
+              {translations.animals.cta.adopt}
             </Link>
           </div>
         </div>

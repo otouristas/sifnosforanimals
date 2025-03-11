@@ -3,10 +3,9 @@
   publish = "out"
 
 [build.environment]
+  # Explicitly specify Node.js version
+  NODE_VERSION = "16.19.1"
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
-  # Explicitly specify Go version
-  GO_VERSION = "1.19"
-  GO_IMPORT_PATH = "github.com/otouristas/sifnosforanimals"
   # Disable Next.js telemetry
   NEXT_TELEMETRY_DISABLED = "1"
 

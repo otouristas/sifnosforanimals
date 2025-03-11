@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   publish = "out"
 
 [build.environment]
@@ -7,6 +7,8 @@
   # Explicitly specify Go version
   GO_VERSION = "1.19"
   GO_IMPORT_PATH = "github.com/otouristas/sifnosforanimals"
+  # Disable Next.js telemetry
+  NEXT_TELEMETRY_DISABLED = "1"
 
 # Handle client-side routing
 [[redirects]]

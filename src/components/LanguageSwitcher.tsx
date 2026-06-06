@@ -10,7 +10,9 @@ interface LanguageSwitcherProps {
 }
 
 export default function LanguageSwitcher({ translations = { en: 'EN', el: 'ΕΛ' } }: LanguageSwitcherProps) {
-  const { language, setLanguage } = useLanguage();
+  const ctx = useLanguage() as unknown as { language?: string; setLanguage?: (l: string) => void; translations: unknown };
+  const language = ctx.language ?? 'en';
+  const setLanguage = ctx.setLanguage ?? (() => {});
 
   const handleLanguageChange = (newLanguage: string) => {
     setLanguage(newLanguage);

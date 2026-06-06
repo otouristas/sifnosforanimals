@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "16.19.1"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export -o out",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },

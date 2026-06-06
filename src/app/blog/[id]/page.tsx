@@ -2,6 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+export function generateStaticParams() {
+  return [
+    { id: 'tips-for-first-time-pet-adopters' },
+    { id: 'success-story-luna-finds-her-forever-home' },
+    { id: 'the-importance-of-spaying-and-neutering' },
+  ];
+}
+
 // Sample blog posts - replace with actual data from your backend
 const blogPosts = {
   'tips-for-first-time-pet-adopters': {

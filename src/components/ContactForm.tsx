@@ -13,7 +13,7 @@ export default function ContactForm({ animalName, compact = false }: ContactForm
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: animalName ? translations.contact.form.placeholders.adoptSubject.replace('{name}', animalName) : '',
+    subject: animalName ? (translations.contact.form.placeholders?.adoptSubject ?? 'Adoption inquiry').replace('{name}', animalName) : '',
     message: '',
   });
 
@@ -42,7 +42,7 @@ export default function ContactForm({ animalName, compact = false }: ContactForm
             type="text"
             name="name"
             id="name"
-            placeholder={translations.contact.form.placeholders.name}
+            placeholder={translations.contact.form.placeholders?.name}
             value={formData.name}
             onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
             className="block w-full rounded-lg border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm"
@@ -61,7 +61,7 @@ export default function ContactForm({ animalName, compact = false }: ContactForm
             type="email"
             name="email"
             id="email"
-            placeholder={translations.contact.form.placeholders.email}
+            placeholder={translations.contact.form.placeholders?.email}
             value={formData.email}
             onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
             className="block w-full rounded-lg border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm"
@@ -81,8 +81,8 @@ export default function ContactForm({ animalName, compact = false }: ContactForm
             name="subject"
             id="subject"
             placeholder={animalName 
-              ? translations.contact.form.placeholders.adoptSubject.replace('{name}', animalName)
-              : translations.contact.form.placeholders.subject}
+              ? translations.contact.form.placeholders?.adoptSubject.replace('{name}', animalName)
+              : translations.contact.form.placeholders?.subject}
             value={formData.subject}
             onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
             className="block w-full rounded-lg border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm"
@@ -102,8 +102,8 @@ export default function ContactForm({ animalName, compact = false }: ContactForm
             name="message"
             rows={4}
             placeholder={animalName 
-              ? translations.contact.form.placeholders.adoptMessage.replace('{name}', animalName)
-              : translations.contact.form.placeholders.message}
+              ? translations.contact.form.placeholders?.adoptMessage.replace('{name}', animalName)
+              : translations.contact.form.placeholders?.message}
             value={formData.message}
             onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
             className="block w-full rounded-lg border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"

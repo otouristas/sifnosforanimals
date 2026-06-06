@@ -1,147 +1,158 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Sample blog posts - replace with actual data from your backend
 const blogPosts = [
   {
     id: 'tips-for-first-time-pet-adopters',
     title: 'Tips for First-Time Pet Adopters',
     excerpt: 'Essential advice for making your new pet feel at home and adjusting to life together.',
-    content: `Bringing a new pet home is an exciting experience, but it can also be overwhelming for both you and your new companion. Here are some essential tips to help make the transition smoother...`,
     image: '/blog/adoption-tips.jpg',
     date: '2024-02-10',
     author: 'Maria Papadopoulos',
     category: 'Adoption Tips',
-    tags: ['adoption', 'pets', 'tips', 'first-time adopters'],
+    readTime: '5 min read',
   },
   {
     id: 'success-story-luna-finds-her-forever-home',
     title: 'Success Story: Luna Finds Her Forever Home',
     excerpt: 'A heartwarming story of how Luna found her perfect family after months at our shelter.',
-    content: `After spending six months in our care, Luna, our beloved mixed-breed dog, has finally found her forever home with the Andreou family...`,
     image: '/blog/success-story.jpg',
     date: '2024-02-08',
     author: 'Nikos Stavrou',
     category: 'Success Stories',
-    tags: ['success story', 'adoption', 'dogs'],
+    readTime: '4 min read',
   },
   {
     id: 'the-importance-of-spaying-and-neutering',
     title: 'The Importance of Spaying and Neutering',
     excerpt: 'Learn why spaying and neutering is crucial for pet population control and animal health.',
-    content: `Spaying and neutering are essential procedures that help control the pet population and provide numerous health benefits for your pets...`,
     image: '/blog/spay-neuter.jpg',
     date: '2024-02-05',
     author: 'Dr. Elena Dimitriou',
     category: 'Pet Health',
-    tags: ['pet health', 'spay', 'neuter', 'veterinary care'],
+    readTime: '6 min read',
   },
 ];
 
+const categories = ['All', 'Adoption Tips', 'Success Stories', 'Pet Health'];
+
+const categoryColors: Record<string, string> = {
+  'Adoption Tips': 'bg-blue-100 text-blue-700',
+  'Success Stories': 'bg-green-100 text-green-700',
+  'Pet Health': 'bg-purple-100 text-purple-700',
+};
+
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Our Blog
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-            Stories, tips, and updates from Sifnos for Animals
-          </p>
-        </div>
+    <main className="min-h-screen bg-cream">
+      {/* ── Hero ── */}
+      <section className="bg-deep py-20 px-4 text-center">
+        <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">Our Blog</p>
+        <h1 className="text-5xl md:text-6xl font-black text-white">
+          Stories &amp; Updates
+        </h1>
+        <p className="mt-6 text-blue-200 text-xl max-w-xl mx-auto">
+          Stories, tips, and updates from Sifnos for Animals
+        </p>
+      </section>
 
-        {/* Categories */}
-        <div className="mt-8 flex justify-center space-x-4">
-          {['All', 'Adoption Tips', 'Success Stories', 'Pet Health'].map((category) => (
-            <button
-              key={category}
-              className="rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Blog Posts Grid */}
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post) => (
-            <article
-              key={post.id}
-              className="overflow-hidden rounded-lg bg-white shadow-sm transition-shadow hover:shadow-md"
-            >
-              <Link href={`/blog/${post.id}`}>
-                <div className="relative h-48">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      })}
-                    </time>
-                    <span className="mx-1">•</span>
-                    <span>{post.category}</span>
-                  </div>
-                  <h2 className="mt-2 text-xl font-semibold text-gray-900">
-                    {post.title}
-                  </h2>
-                  <p className="mt-3 text-base text-gray-500">
-                    {post.excerpt}
-                  </p>
-                  <div className="mt-4">
-                    <div className="flex items-center">
-                      <div className="text-sm text-gray-500">
-                        By {post.author}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </article>
-          ))}
-        </div>
-
-        {/* Newsletter Signup */}
-        <div className="mt-16 rounded-lg bg-red-600 px-6 py-10 sm:py-16 sm:px-12">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white">
-              Stay Updated
-            </h2>
-            <p className="mx-auto mt-2 max-w-xl text-lg leading-8 text-red-100">
-              Subscribe to our newsletter for the latest updates, success stories, and tips for pet owners.
-            </p>
-            <form className="mt-6 sm:mx-auto sm:flex sm:max-w-lg">
-              <div className="min-w-0 flex-1">
-                <label htmlFor="email" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  className="block w-full rounded-md border-0 px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-600"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div className="mt-4 sm:mt-0 sm:ml-3">
-                <button
-                  type="submit"
-                  className="block w-full rounded-md bg-white px-4 py-3 font-medium text-red-600 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-600 sm:text-sm"
-                >
-                  Subscribe
-                </button>
-              </div>
-            </form>
+      {/* ── Categories ── */}
+      <div className="sticky top-16 lg:top-20 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-2 overflow-x-auto py-3">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                className={`shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                  cat === 'All'
+                    ? 'bg-primary text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
       </div>
-    </div>
+
+      {/* ── Posts Grid ── */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post) => (
+              <Link key={post.id} href={`/blog/${post.id}`} className="group">
+                <article className="bg-white rounded-2xl overflow-hidden shadow-sm card-lift border border-gray-100 h-full flex flex-col">
+                  <div className="relative h-52 overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className={`text-xs font-semibold px-3 py-1 rounded-full ${categoryColors[post.category] || 'bg-gray-100 text-gray-600'}`}>
+                        {post.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">
+                      <time dateTime={post.date}>
+                        {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                      </time>
+                      <span>·</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                    <h2 className="text-xl font-black text-deep mb-3 group-hover:text-primary transition-colors leading-snug">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-500 text-sm leading-relaxed flex-1">
+                      {post.excerpt}
+                    </p>
+                    <div className="mt-5 flex items-center justify-between pt-4 border-t border-gray-100">
+                      <span className="text-xs text-gray-400">By {post.author}</span>
+                      <span className="text-primary text-sm font-semibold group-hover:gap-2 inline-flex items-center gap-1 transition-all">
+                        Read more
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Newsletter ── */}
+      <section className="py-16 px-4 bg-primary">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl font-black text-white">Stay Updated</h2>
+          <p className="mt-3 text-blue-100 text-lg">
+            Subscribe for the latest news, success stories, and animal updates from Sifnos.
+          </p>
+          <form className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+            <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+            <input
+              id="newsletter-email"
+              type="email"
+              className="flex-1 rounded-full px-5 py-3 text-sm text-gray-900 placeholder-gray-400 border-0 focus:outline-none focus:ring-2 focus:ring-white/50"
+              placeholder="your@email.com"
+            />
+            <button
+              type="submit"
+              className="shrink-0 bg-deep hover:bg-deep-dark text-white font-bold px-6 py-3 rounded-full transition-all"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -38,31 +38,31 @@ export default function DonationOptions({ selectedPackage, compact = false }: Do
   const donationPackages: DonationPackage[] = [
     {
       id: 'cat-food',
-      title: translations.donate.packages.items.catFood.title,
+      title: ((translations.donate.packages.items as any)).catFood.title,
       amount: 8,
-      description: translations.donate.packages.items.catFood.description,
-      impact: translations.donate.packages.items.catFood.impact
+      description: ((translations.donate.packages.items as any)).catFood.description,
+      impact: ((translations.donate.packages.items as any)).catFood.impact
     },
     {
       id: 'dog-food',
-      title: translations.donate.packages.items.dogFood.title,
+      title: (translations.donate.packages.items as any).dogFood.title,
       amount: 15,
-      description: translations.donate.packages.items.dogFood.description,
-      impact: translations.donate.packages.items.dogFood.impact
+      description: (translations.donate.packages.items as any).dogFood.description,
+      impact: (translations.donate.packages.items as any).dogFood.impact
     },
     {
       id: 'injured',
-      title: translations.donate.packages.items.injured.title,
+      title: ((translations.donate.packages.items as any)).injured.title,
       amount: 25,
-      description: translations.donate.packages.items.injured.description,
-      impact: translations.donate.packages.items.injured.impact
+      description: ((translations.donate.packages.items as any)).injured.description,
+      impact: ((translations.donate.packages.items as any)).injured.impact
     },
     {
       id: 'senior',
-      title: translations.donate.packages.items.senior.title,
+      title: ((translations.donate.packages.items as any)).senior.title,
       amount: 40,
-      description: translations.donate.packages.items.senior.description,
-      impact: translations.donate.packages.items.senior.impact
+      description: ((translations.donate.packages.items as any)).senior.description,
+      impact: ((translations.donate.packages.items as any)).senior.impact
     }
   ];
 

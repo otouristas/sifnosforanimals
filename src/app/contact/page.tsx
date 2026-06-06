@@ -1,102 +1,130 @@
 'use client';
 
 import { useLanguage } from '@/components/LanguageProvider';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import ContactForm from '@/components/ContactForm';
 
 export default function ContactPage() {
   const { translations } = useLanguage();
 
   return (
-    <div className="bg-white">
-      <div className="relative isolate px-6 pt-14 lg:px-8">
-        <div className="mx-auto max-w-2xl py-8 sm:py-12">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              {translations.contact.title}
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              {translations.contact.subtitle}
-            </p>
-          </div>
-        </div>
-      </div>
+    <main className="min-h-screen bg-cream">
+      {/* ── Hero ── */}
+      <section className="bg-deep py-20 px-4 text-center">
+        <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">Get In Touch</p>
+        <h1 className="text-5xl md:text-6xl font-black text-white">
+          {translations.contact.title}
+        </h1>
+        <p className="mt-6 text-blue-200 text-xl max-w-xl mx-auto">
+          {translations.contact.subtitle}
+        </p>
+      </section>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-          <div className="max-w-xl lg:max-w-lg">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-              {translations.contact.getInTouch}
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
-              {translations.contact.getInTouchText}
-            </p>
-            <div className="mt-6 space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {translations.contact.location}
-                </h3>
-                <address className="mt-3 space-y-1 text-gray-600 not-italic">
-                  <p>{translations.contact.address.line1}</p>
-                  <p>{translations.contact.address.line2}</p>
-                  <p>{translations.contact.address.line3}</p>
-                </address>
+      {/* ── Contact Content ── */}
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+            {/* Left: Info */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Get in touch */}
+              <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+                <h2 className="text-xl font-black text-deep mb-2">{translations.contact.getInTouch}</h2>
+                <p className="text-gray-500 text-sm leading-relaxed">{translations.contact.getInTouchText}</p>
               </div>
 
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {translations.contact.website}
-                </h3>
-                <p className="mt-3 text-gray-600">
-                  <a href="https://www.sifnosforanimals.org" className="text-blue-600 hover:text-blue-500">
-                    www.sifnosforanimals.org
-                  </a>
-                </p>
+              {/* Location */}
+              <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 text-primary">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-deep mb-1">{translations.contact.location}</h3>
+                    <address className="not-italic text-gray-500 text-sm space-y-0.5">
+                      <p>{translations.contact.address.line1}</p>
+                      <p>{translations.contact.address.line2}</p>
+                      <p>{translations.contact.address.line3}</p>
+                    </address>
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {translations.contact.followSupport}
-                </h3>
-                <div className="mt-3 space-y-3">
+              {/* Email */}
+              <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 text-primary">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-deep mb-1">Email</h3>
+                    <a
+                      href="mailto:info@sifnosforanimals.gr"
+                      className="text-primary hover:text-primary-dark text-sm font-medium transition-colors"
+                    >
+                      info@sifnosforanimals.gr
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social */}
+              <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+                <h3 className="font-bold text-deep mb-4">{translations.contact.followSupport}</h3>
+                <div className="space-y-3">
                   <a
                     href="https://www.facebook.com/sifnosforanimals"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-gray-600 hover:text-blue-600"
+                    className="flex items-center gap-3 text-gray-600 hover:text-[#1877f2] transition-colors group"
                   >
-                    <FontAwesomeIcon icon={faFacebook} className="h-5 w-5" />
-                    <span className="ml-3">{translations.contact.social.facebook}</span>
+                    <div className="w-8 h-8 bg-gray-100 group-hover:bg-[#1877f2]/10 rounded-lg flex items-center justify-center transition-colors">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium">{translations.contact.social.facebook}</span>
                   </a>
                   <a
                     href="https://www.instagram.com/sifnosforanimals"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-gray-600 hover:text-pink-600"
+                    className="flex items-center gap-3 text-gray-600 hover:text-[#e1306c] transition-colors group"
                   >
-                    <FontAwesomeIcon icon={faInstagram} className="h-5 w-5" />
-                    <span className="ml-3">{translations.contact.social.instagram}</span>
-                  </a>
-                  <a
-                    href="https://twitter.com/sifnosforanimals"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-gray-600 hover:text-blue-400"
-                  >
-                    <FontAwesomeIcon icon={faTwitter} className="h-5 w-5" />
-                    <span className="ml-3">{translations.contact.social.twitter}</span>
+                    <div className="w-8 h-8 bg-gray-100 group-hover:bg-[#e1306c]/10 rounded-lg flex items-center justify-center transition-colors">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/>
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium">{translations.contact.social.instagram}</span>
                   </a>
                 </div>
               </div>
+
+              {/* Map */}
+              <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100 h-48">
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=24.65,36.95,24.75,37.05&layer=mapnik&marker=37.0,24.7"
+                  className="w-full h-full border-0"
+                  title="Sifnos, Cyclades, Greece"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Right: Form */}
+            <div className="lg:col-span-3">
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 h-full">
+                <h2 className="text-2xl font-black text-deep mb-6">Send us a message</h2>
+                <ContactForm />
+              </div>
             </div>
           </div>
-
-          <div className="max-w-xl lg:max-w-lg">
-            <ContactForm />
-          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
